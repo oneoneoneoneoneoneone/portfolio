@@ -22,7 +22,7 @@ iOS 앱 개발 하는 어쩌고 저쩌고
 >기술 스택:  
 >UIKit / SnapKit
 >  
->[프로젝트 상세 설명] (깃 주소)
+>[프로젝트 상세 설명] (https://github.com/oneoneoneoneoneoneone/portfolio/project1.md)
 ---
 
 ### 2. ToDo LIST
