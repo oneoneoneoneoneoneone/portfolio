@@ -8,8 +8,8 @@ iOS 앱 개발 하는 어쩌고 저쩌고
 </br>
 
 ## :pushpin: Contact
-- 이메일: hana
-- 블로그: [https://ryan-han.com](https://0ne1-1.tistory.com/)
+- 이메일: hana@aa.com
+- 블로그: https://0ne1-1.tistory.com
 - 깃헙: https://github.com/oneoneoneoneoneoneone
 
 </br>
