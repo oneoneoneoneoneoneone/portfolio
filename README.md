@@ -3,11 +3,13 @@
 </br>
 
 ## :pushpin: Intro
+
 iOS 앱 개발 하는 어쩌고 저쩌고
 
 </br>
 
 ## :pushpin: Contact
+
 - 이메일: hana@aa.com
 - 블로그: https://0ne1-1.tistory.com
 - 깃헙: https://github.com/oneoneoneoneoneoneone
@@ -15,16 +17,34 @@ iOS 앱 개발 하는 어쩌고 저쩌고
 </br>
 
 ## :pushpin: Projects
-### 1. 클론코딩
+
+### 1. D-Day
+>D-Day 앱 출시 (개인 프로젝트)  
+>개발 기간: 2022.01 ~ 2022.02
+>  
+>기술 스택:  
+>UIKit / SnapKit / rxSwift / Realm
+>
+>[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project-dday.md)
+
+---
+
+### 2. 클론코딩
 >네이버 웹툰 클론코딩 (개인 프로젝트)  
->개발 기간: 2022.07.01 ~ 2022.12.30
+>개발 기간: 2022.07 ~ 2022.12
 >  
 >기술 스택:  
 >UIKit / SnapKit
 >
->[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project1.md)
+>[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project-nw.md)
+
 ---
 
-### 2. ToDo LIST
->todo list 앱 (개인 프로젝트)  
-
+### 3. 강의 실습
+>패스트캠퍼스 온라인 강의 수강시 실습한 프로젝트 (개인 프로젝트)
+>개발 기간: 2022.03 ~ 2023.02
+>  
+>기술 스택: 
+>UIKit / SnapKit
+>
+>[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project-fc.md)
