@@ -11,10 +11,7 @@
 </br>
 
 ## 2. 사용 기술
-#### `Back-end`
-  - aa
-  - bb
-#### `Front-end`
+- UIKit / SnapKit / rxSwift / Realm
 
 
 </br>
