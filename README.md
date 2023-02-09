@@ -4,7 +4,7 @@
 
 ## :pushpin: Intro
 
-iOS앱 개발을하고있습니다.
+iOS앱 개발을 하고있습니다.
 
 </br>
 
