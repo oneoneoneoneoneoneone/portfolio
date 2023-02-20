@@ -158,7 +158,7 @@
 - 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
 
 <details>
-<summary><b>FCM 토큰 발급</b></summary>
+<summary><b>코드 - FCM 토큰 발급</b></summary>
 <div markdown="1">
   
 ~~~swift
@@ -189,7 +189,7 @@
 </details>
 
 <details>
-<summary><b>API 통신</b></summary>
+<summary><b>코드 - API 통신</b></summary>
 <div markdown="1">
     
   ~~~swift
@@ -221,10 +221,10 @@
 </details>   
     
 <details>
-<summary><b>AlertAction(정렬방식) 선택시 데이터 처리</b></summary>
+<summary><b>코드 - 정렬</b></summary>
 <div markdown="1">
     
-  - ViewModel - ViewController . AlertAction이 선택되었을 때 동작 정의
+  - ViewModel - ViewController . AlertAction(정렬방식)이 선택되었을 때 동작
   ~~~swift
   //MainViewController
     viewModel.shouldPresentAlert
@@ -267,7 +267,7 @@
 </details>
     
 <details>
-<summary><b>검색</b></summary>
+<summary><b>코드 - 검색</b></summary>
 <div markdown="1">
  
   - 검색버튼 이벤트 연결
@@ -355,7 +355,7 @@
 </details>
 
 <details>
-<summary>책 검색</summary>
+<summary>코드 - 책 검색</summary>
 <div markdown="1">
     
   - 
@@ -377,7 +377,7 @@
 </details>
    
 <details>
-<summary>리뷰 저장(딜리게이트 패턴)</summary>
+<summary>코드 - 리뷰 저장(딜리게이트 패턴)</summary>
 <div markdown="1">
     
   - 
@@ -435,7 +435,7 @@
 </details>
     
 <details>
-<summary>XCTest / Unit Test 코드 작성</summary>
+<summary>코드 - XCTest / Unit Test</summary>
 <div markdown="1">
     
   - 
