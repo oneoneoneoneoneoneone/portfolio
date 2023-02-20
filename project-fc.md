@@ -40,25 +40,31 @@
 <details>
 <summary>코드 흐름</summary>
 <div markdown="1">
-  
-  - Firebase Remote Config를 추가
-  
-~~~swift
-    let component = Calendar.current.dateComponents([.hour, .minute], from: alert.date)
-    let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: alert.isOn)
-    let request = UNNotificationRequest(identifier: alert.id, content: content, trigger: trigger)
-~~~
+    
+  - Firebase Remote Config 연결
+  ~~~swift
+  //ViewController
+    var remoteConfig: RemoteConfig?
+    remoteConfig = RemoteConfig.remoteConfig()
+
+    let setting = RemoteConfigSettings()
+    //테스트를 위해 새로운 값을 패치하는 리커버를 최소화해서 최대한 자주 가져옴//개발 중 0
+    setting.minimumFetchInterval = 0
+
+    remoteConfig?.configSettings = setting
+    remoteConfig?.setDefaults(fromPlist: "RemoteConfigDefaults")
+  ~~~
+    
+  - 공지확인 터치시 Firebase A-B Test 기록
+  ~~~swift
+  //ViewController
+    let confirmAction = UIAlertAction(title: "확인하기", style: .default) { _ in
+        //google analytics 이벤트 기록
+        Analytics.logEvent("promotion_alert", parameters: nil)
+    }
+  ~~~
   
 </div>
-</details>
-
-<details>
-<summary>Firebase A-B Test 적용 코드</summary>
-
-~~~swift
-  
-~~~
-  
 </details>
 
 </br>
@@ -153,6 +159,7 @@
 
 <details>
 <summary><b>FCM 토큰 발급</b></summary>
+<div markdown="1">
   
 ~~~swift
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
@@ -161,6 +168,7 @@
     }
 ~~~
   
+</div>
 </details>
 
 </br>
@@ -180,9 +188,54 @@
 </div>
 </details>
 
+<details>
+<summary><b>코드흐름</b></summary>
+<div markdown="1">
+  
+  - API통신
+  ~~~swift
+  //SearchBlogNetwork
+    let request = NSMutableURLRequest(url: url)
+    request.httpMethod = "GET"
+    //header
+    request.setValue("KakaoAK -", forHTTPHeaderField: "Authorization")
 
-- API통신 코드
-- rx 데이터 처리 코드
+    return session.rx.data(request: request as URLRequest)
+        .map{data in
+            //json encoding
+            do{
+                let blogData = try JSONDecoder().decode(DKBlog.self, from: data)
+                return .success(blogData)
+            }catch{
+                return .failure(.invalidJSON)
+            }
+        }
+        .catch{_ in
+                .just(.failure(.networkError))
+        }
+        //옵저버블 > single
+        //Single<Result<DKBlog, SearchNetworkError>>
+        .asSingle()
+  ~~~
+    
+  - rx 데이터 처리
+  ~~~swift
+  //MainViewModel
+    //메인뷰의 액션으로 데이터처리 -> 리스트뷰에 값 셋팅
+    Observable
+        .combineLatest(
+            sortedType,
+            cellData,
+            resultSelector: model.sort
+        )
+        .bind(to: blogListViewModel.BlogCellData)
+        .disposed(by: disposeBag)
+  ~~~
+  
+</div>
+</details>
+
+
 
 </br>
 
