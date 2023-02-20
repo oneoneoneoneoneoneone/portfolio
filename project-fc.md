@@ -1,6 +1,6 @@
 # :pushpin: 온라인 강의 실습 프로젝트
 >강의 정보: [[패스트캠퍼스]30개 프로젝트로 배우는 iOS 앱 개발 with Swift 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_iosappfinal) <br>
->전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+>전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios)
 
 </br>
 
@@ -24,15 +24,15 @@
 
 ### 3.1. 실시간 공지사항 팝업 만들기
 - 기능: 단순 공지사항 팝업을 띄우는 기능을 가진 앱으로, Firebase Remote Config와 연결하여 실시간으로 공지 내용을 변경할 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
 
 <details>
 <summary>화면</summary>
 <div markdown="1">
-  
-|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
-|:--:|:--:|
-| *리스트화면* | *알림추가화면* |
+
+|<img src="" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220093765-63e010ac-3625-4aec-9911-4e0c2d7ed350.png" width="20%" height="20%" alt>| 
+|:--:|
+| *공지 화면* |
     
 </div>
 </details>
@@ -65,7 +65,7 @@
 
 ### 3.2. 물마시기 알람 앱 만들기
 - 기능: datePicker로 알림을 추가하고 알림 리스트를 관리할 수 있으며, NotificationCenter으로 알림을 받아볼 수 있습니다. 
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Drink)
 
 <details>
 <summary>화면</summary>
@@ -73,7 +73,7 @@
   
 |<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
 |:--:|:--:|
-| *리스트화면* | *알림추가화면* |
+| *리스트 화면* | *알림 추가 화면* |
     
 </div>
 </details>
@@ -149,7 +149,7 @@
 
 ### 3.3. 재난문자 푸시 알림 구현하기
 - 기능: Firebase Clouding Messaging 사용해 APNs 알림을 보낼 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
 
 <details>
 <summary><b>FCM 토큰 발급</b></summary>
@@ -167,15 +167,15 @@
 
 ### 3.4. 다음 카페/블로그 검색앱 만들기
 - 기능: 
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P4/SubwayStation)
 
 <details>
 <summary>화면</summary>
 <div markdown="1">
   
-|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
-|:--:|:--:|
-| *리스트화면* | *알림추가화면* |
+|<img src="https://user-images.githubusercontent.com/94464179/220095185-ac42021f-97e2-4352-aca2-e1dc5bcc8639.png" width="20%" height="20%" alt>| 
+|:--:|
+| *검색 리스트 화면* |
     
 </div>
 </details>
@@ -188,7 +188,7 @@
 
 ### 3.5. 내 근처 편의점 찾기 앱
 - 기능: 
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/FindCVS)
 
 <details>
 <summary>화면</summary>
@@ -212,7 +212,7 @@
 
 ### 3.6. 도서리뷰 앱 만들기
 - 기능: 
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/fc)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/BookReview)
 
 <details>
 <summary>화면</summary>
