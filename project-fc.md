@@ -30,7 +30,7 @@
 <summary>화면</summary>
 <div markdown="1">
 
-|<img src="" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220093765-63e010ac-3625-4aec-9911-4e0c2d7ed350.png" width="20%" height="20%" alt>| 
+|<img src="https://user-images.githubusercontent.com/94464179/220093765-63e010ac-3625-4aec-9911-4e0c2d7ed350.png" width="20%" height="20%" alt>| 
 |:--:|
 | *공지 화면* |
     
