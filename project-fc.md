@@ -30,7 +30,7 @@
 <summary>화면</summary>
 <div markdown="1">
 
-|<img src="https://user-images.githubusercontent.com/94464179/220093765-63e010ac-3625-4aec-9911-4e0c2d7ed350.png" width="20%" height="20%" alt>| 
+|<img src="https://user-images.githubusercontent.com/94464179/220093765-63e010ac-3625-4aec-9911-4e0c2d7ed350.png" width="12%" height="12%" alt>| 
 |:--:|
 | *공지 화면* |
     
@@ -77,7 +77,7 @@
 <summary>화면</summary>
 <div markdown="1">
   
-|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
+|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="25%" height="25%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="25%" height="25%" alt>| 
 |:--:|:--:|
 | *리스트 화면* | *알림 추가 화면* |
     
@@ -175,13 +175,13 @@
 
 ### 3.4. 다음 카페/블로그 검색앱 만들기
 - 기능: 다음 검색 API로 카페/블로그 글을 검색하고, 이름/작성일 기준으로 정렬하여 조회 할 수 있습니다.
-프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P4/SubwayStation)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P4/SubwayStation)
 
 <details>
 <summary>화면</summary>
 <div markdown="1">
   
-|<img src="https://user-images.githubusercontent.com/94464179/220095185-ac42021f-97e2-4352-aca2-e1dc5bcc8639.png" width="20%" height="20%" alt>| 
+|<img src="https://user-images.githubusercontent.com/94464179/220095185-ac42021f-97e2-4352-aca2-e1dc5bcc8639.png" width="12%" height="12%" alt>| 
 |:--:|
 | *검색 리스트 화면* |
     
@@ -317,14 +317,14 @@
 </br>
 
 ### 3.5. 내 근처 편의점 찾기 앱
-- 기능: 
+- 기능: ..
 - 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/FindCVS)
 
 <details>
 <summary>화면</summary>
 <div markdown="1">
   
-|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
+|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="25%" height="25%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="25%" height="25%" alt>| 
 |:--:|:--:|
 | *리스트화면* | *알림추가화면* |
     
@@ -348,7 +348,7 @@
 <summary>화면</summary>
 <div markdown="1">
     
-|<img src="https://user-images.githubusercontent.com/94464179/220159735-8f41ee26-39df-4df1-a0b4-78119eab6aac.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220159759-d67f0dfa-9bb5-403f-a3ec-8f6580f09685.png" width="20%" height="20%" alt>|<img src= "https://user-images.githubusercontent.com/94464179/220159748-f8f2ff02-c76e-430b-a98b-795ea4ac9a06.png" width="20%" height="20%" alt>|
+|<img src="https://user-images.githubusercontent.com/94464179/220159735-8f41ee26-39df-4df1-a0b4-78119eab6aac.png" width="40%" height="40%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220159759-d67f0dfa-9bb5-403f-a3ec-8f6580f09685.png" width="40%" height="40%" alt>|<img src= "https://user-images.githubusercontent.com/94464179/220159748-f8f2ff02-c76e-430b-a98b-795ea4ac9a06.png" width="40%" height="40%" alt>|
 |:--:|:--:|:--:|
 | *리스트 화면* | *리뷰 작성 화면* | *제목 검색 화면* |
 
