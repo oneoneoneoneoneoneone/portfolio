@@ -158,7 +158,7 @@
 - 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
 
 <details>
-<summary><b>코드 - FCM 토큰 발급</b></summary>
+<summary>코드 - FCM 토큰 발급</summary>
 <div markdown="1">
   
 ~~~swift
@@ -189,7 +189,7 @@
 </details>
 
 <details>
-<summary><b>코드 - API 통신</b></summary>
+<summary>코드 - API 통신</summary>
 <div markdown="1">
     
   ~~~swift
@@ -221,7 +221,7 @@
 </details>   
     
 <details>
-<summary><b>코드 - 정렬</b></summary>
+<summary>코드 - 정렬</summary>
 <div markdown="1">
     
   - ViewModel - ViewController . AlertAction(정렬방식)이 선택되었을 때 동작
@@ -267,7 +267,7 @@
 </details>
     
 <details>
-<summary><b>코드 - 검색</b></summary>
+<summary>코드 - 검색</summary>
 <div markdown="1">
  
   - 검색버튼 이벤트 연결
