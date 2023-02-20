@@ -174,7 +174,7 @@
 </br>
 
 ### 3.4. 다음 카페/블로그 검색앱 만들기
-- 기능: 
+- 기능: 다음 검색 API로 카페/블로그 글을 검색하고, 이름/작성일 기준으로 정렬하여 조회 할 수 있습니다.
 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P4/SubwayStation)
 
 <details>
@@ -189,10 +189,9 @@
 </details>
 
 <details>
-<summary><b>코드흐름</b></summary>
+<summary><b>API 통신</b></summary>
 <div markdown="1">
-  
-  - API통신
+    
   ~~~swift
   //SearchBlogNetwork
     let request = NSMutableURLRequest(url: url)
@@ -218,13 +217,45 @@
         .asSingle()
   ~~~
     
-  - rx 데이터 처리
+</div>
+</details>   
+    
+<details>
+<summary><b>AlertAction(정렬방식) 선택시 데이터 처리</b></summary>
+<div markdown="1">
+    
+  - ViewModel - ViewController . AlertAction이 선택되었을 때 동작 정의
+  ~~~swift
+  //MainViewController
+    viewModel.shouldPresentAlert
+        .flatMap{alert -> Signal<AlertAction> in
+            let alertController = UIAlertController(title: alert.title, message: alert.message, preferredStyle: alert.style)
+            //Alert컨트롤러 생성 메소드 호출
+            return self.presentAlertController(alertController, actions: alert.actions)
+        }
+        .emit(to: viewModel.alertActionTap)
+        .disposed(by: disposeBag)  
+  ~~~
+    
+  - alertActionTap되었을 때, 기존 CellData를 sortedType에 맞게 재정렬시키는 연산 수행
   ~~~swift
   //MainViewModel
+    //filterView 선택 > alertSheet > type별로 액션을 구분
+    let sortedType = alertActionTap
+    .filter{
+        switch $0 {
+        case .title, .datetime:
+            return true
+        default:
+            return false
+        }
+    }
+    .startWith(.title)  //초기값
+    
     //메인뷰의 액션으로 데이터처리 -> 리스트뷰에 값 셋팅
     Observable
         .combineLatest(
-            sortedType,
+            sortedType, //PublishSubject<MainViewController.AlertAction>()
             cellData,
             resultSelector: model.sort
         )
@@ -234,9 +265,55 @@
   
 </div>
 </details>
+    
+<details>
+<summary><b>검색</b></summary>
+<div markdown="1">
+ 
+  - 검색버튼 이벤트 연결
+  ~~~swift
+  //SearchBar
+    //searchButtonTap = searchButtonClicked(키보드의 검색 버튼) + search 커스텀 버튼 탭
+    viewModel.searchButtonTap
+        .asSignal()
+        .emit(to: self.rx.endEditing)   //SearchBar에 endEditing 메소드를 Rx로 Reactive
+        .disposed(by: disposeBag)
+  ~~~
+    
+   - 검색버튼 탭 되었을 때 결과처리??????????????????????
+  ~~~swift
+  //SearchBar
+    self.shouldLoadResult = searchButtonTap
+        //옵셔널처리를 왜 $1 ?????????????????????????
+        .withLatestFrom(queryText) {$1 ?? ""}
+        .filter{!$0.isEmpty}
+        .distinctUntilChanged()
+  ~~~   
+    
+   - 검색데이터 맵핑
+  ~~~swift
+  //MainViewModel
+    let blogResult = searchBarViewModel.shouldLoadResult
+    //파라미터 인자와 메소드 인자가 동일하면 클로저안써도 됨
+        .flatMapLatest(model.searchBlog)
+        .share()
+    
+    //예외처리하고 결과만 가져옴
+    let blogValue = blogResult
+        .compactMap(model.getBlogValue)
 
-
-
+    //에러처리
+    let blogError = blogResult
+        .compactMap(model.getBlogError)
+    
+    let cellData = blogValue
+    .map(model.getBlogListCellData)
+    .debug("MainViewModel - cellData")
+  ~~~      
+    
+</div>
+</details>
+    
 </br>
 
 ### 3.5. 내 근처 편의점 찾기 앱
@@ -264,28 +341,114 @@
 </br>
 
 ### 3.6. 도서리뷰 앱 만들기
-- 기능: 
+- 기능: 네이버 검색 API로 가져온 책 제목/이미지, 리뷰를 작성하고 그 목록을 조회할 수 있습니다.
 - 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/BookReview)
 
 <details>
 <summary>화면</summary>
 <div markdown="1">
-  
-|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/218811403-eeace868-3889-4fc7-a9d8-fbbce151f7b9.png" width="20%" height="20%" alt>| 
-|:--:|:--:|
-| *리스트화면* | *알림추가화면* |
     
-</div>
+|<img src="https://user-images.githubusercontent.com/94464179/220159735-8f41ee26-39df-4df1-a0b4-78119eab6aac.png" width="20%" height="20%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220159759-d67f0dfa-9bb5-403f-a3ec-8f6580f09685.png" width="20%" height="20%" alt>|<img src= "https://user-images.githubusercontent.com/94464179/220159748-f8f2ff02-c76e-430b-a98b-795ea4ac9a06.png" width="20%" height="20%" alt>|
+|:--:|:--:|:--:|
+| *리스트 화면* | *리뷰 작성 화면* | *제목 검색 화면* |
+
 </details>
 
+<details>
+<summary>책 검색</summary>
+<div markdown="1">
+    
+  - 
+  ~~~swift
+  //SearchBookPresenter
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {return}
 
-- MVP 패턴
-- XCTest / Unit Test 코드 작성
+        //책 검색 데이터 가져옴. completionHandler([Book])
+        bookSearchManager.request(from: searchText){ [weak self] newBooks in
+            self?.books = newBooks
+            self?.viewController.reloadView()
+        }
+    }
 
+  ~~~
+  
+</div>
+</details>
+   
+<details>
+<summary>리뷰 저장(딜리게이트 패턴)</summary>
+<div markdown="1">
+    
+  - 
+  ~~~swift
+  //SearchBookPresenter
+    
+    private let delegate: SearchBookDelegate
+    
+    init(viewController: SearchBookProtocol, delegate: SearchBookDelegate) {
+        self.viewController = viewController
+        self.delegate = delegate
+    }
+    
+    //tableView Cell 선택
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedBook = books[indexPath.row]
+        //선택된 Cell data 딜리게이트로 전달
+        delegate.selectBook(selectedBook)
+        
+        viewController.close()
+    }
+  ~~~
+    
+  ~~~swift
+  //SearchBookDelegate
+    protocol SearchBookDelegate{
+        func selectBook(_ book: Book)
+    }
+  ~~~
+    
+  ~~~swift
+  //SearchBookViewController
+    private lazy var presenter = SearchBookPresenter(viewController: self, delegate: serachBookDelegate)
+    
+    private let serachBookDelegate: SearchBookDelegate
+    
+    init(searchBookDelegate: SearchBookDelegate){
+        self.serachBookDelegate = searchBookDelegate
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+  ~~~
+    
+  ~~~swift
+  //ReviewWritePresenter
+    extension ReviewWritePresenter: SearchBookDelegate{
+        func selectBook(_ book: Book) {
+            self.book = book
+            viewController.updateViews(title: book.title, imageUrl: book.imageURL)
+        }
+    }
+  ~~~
+  
+</div>
+</details>
+    
+<details>
+<summary>XCTest / Unit Test 코드 작성</summary>
+<div markdown="1">
+    
+  - 
+  ~~~swift
+  //ㅇㅇ
+
+  ~~~
+  
+</div>
+</details>
 
 </br>
 
   
 ## 4. 회고 / 느낀점
 >프로젝트 개발 회고 글:
->디자인이 다 나와있는데 왜 안대누..
