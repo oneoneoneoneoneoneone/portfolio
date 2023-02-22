@@ -1,6 +1,6 @@
 # :pushpin: 클론코딩
 >네이버웹툰 클론코딩  
->[🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding)
+>전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding)
 
 </br>
 
@@ -51,7 +51,7 @@
   
 - 앱 최초 로드 시 네이버 검색 API로 책 정보를 조회하여 데이터를 구성했습니다.
   
-- **API 통신** :pushpin: [LocalNetwork 코드 확인](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Network/LocalNetwork.swift)
+- **API 통신** 
   - 서버통신은 URLSession을 사용
   ~~~Swift
     //리퀘스트 생성
@@ -72,6 +72,8 @@
   ~~~Swift
     let books = try JSONDecoder().decode(Books.self, from: data)
   ~~~
+  
+  - LocalNetwork.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Network/LocalNetwork.swift)
 
   
 ### 3.4. Service
@@ -79,14 +81,15 @@
 
 ### 3.5. Repository
 
-- **User Default로 저장** :pushpin: [코드 확인](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/Util/Repository.swift)
+- **User Default로 저장** 
+  - Repository.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Util/Repository.swift)
   
 - 로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
   - Item - 앱 최초 실행시 저장하는 작품(책) 정보
   - User - 관심작품 추가를 위한 기본 사용자 정보
   - LikeItem - 관심작품 추가 정보
   - searchLog - 검색어 기록
-<img src="https://user-images.githubusercontent.com/94464179/220568828-228645e4-0024-4978-a867-721ffb86488e.png"  width="50%" height="50%" alt>
+  <img src="https://user-images.githubusercontent.com/94464179/220568828-228645e4-0024-4978-a867-721ffb86488e.png"  width="50%" height="50%" alt>
 
   
 </div>
