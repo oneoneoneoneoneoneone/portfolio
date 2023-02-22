@@ -1,6 +1,6 @@
 # :pushpin: 클론코딩
 >네이버웹툰 클론코딩  
->https://github.com/oneoneoneoneoneoneone/nw
+>[🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding)
 
 </br>
 
@@ -11,19 +11,12 @@
 </br>
 
 ## 2. 사용 기술
-#### `Back-end`
-  - aa
-  - bb
-#### `Front-end`
-
+- UIKit / SnapKit
 
 </br>
 
-## 3. ERD 설계
-![](다이어그램 이미지)
 
-
-## 4. 핵심 기능
+## 3. 핵심 기능
 이 서비스의 핵심 기능은 네이버 웹툰을 사용자 편의에 맞게 조회시키는 것..?임
 구현할 수 있는 뷰이벤트를 최대한 구현하였음
 
@@ -31,10 +24,17 @@
 <summary><b>펼치기</b></summary>
 <div markdown="1">
 
-### 4.1. 화면 흐름
-![](스토리보드 이미지 첨부)
+  
+### 3.1. 화면 흐름
+  
+|<img src="https://user-images.githubusercontent.com/94464179/220561401-e56a2766-7b70-478c-bbf8-3a6bcd63c37e.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561408-29ae03e1-9fcc-4c8e-b8d3-44d9be4c4730.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561412-e0ddcb22-991f-46d3-aa17-d6b9050ad111.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561422-91dc1c58-e4ab-4963-bc9a-b16ca549e0d6.png" width="90%" height="90%" alt>|
+|:--:|:--:|:--:|:--:|
+| *웹툰(메인)* | *추천완결* | *베스트도전* | *My* |
+|<img src="https://user-images.githubusercontent.com/94464179/220561419-8d1abd98-730b-4ff6-a096-c770cf7ef22f.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561427-cd08f77e-cb39-4b7b-abfa-879b33011928.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561429-4782190d-d739-467b-b482-449d8c211b02.png" width="90%" height="90%" alt>|
+| *더보기* | *검색* | *상세* |
 
-### 4.2. API 조회
+  
+### 3.2. API 조회
 - **앱 최초 로드 시 네이버 책&영화 OPEN API를 조회하여 데이터를 구성했습니다.**
   - 책 링크
   - 북 링크
@@ -45,7 +45,8 @@
 - **User Default로 저장** :pushpin: [코드 확인](링크)
   - 로컬데이터 사용. 두번째 사용부터 로딩 없음
 
-### 4.3. ViewController
+  
+### 3.3. ViewController
 
 - **오토 레이아웃 - SnapKit** :pushpin: [코드 확인]()
   - 스넵킷을 이용하여 화면 레이아웃 구성
@@ -54,12 +55,21 @@
   - ㅎㅎ.... 콜렉션뷰.. 테이블뷰.. 어쩌고
   - 재사용을 고려하여..
 
-### 4.4. Service
+  
+### 3.4. Service
 
 
-### 4.5. Repository
+### 3.5. Repository
 
-
+로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
+  
+<img src="https://user-images.githubusercontent.com/94464179/220568828-228645e4-0024-4978-a867-721ffb86488e.png"  width="50%" height="50%" alt>
+Item - 앱 최초 실행시 저장하는 작품(책) 정보
+User - 관심작품 추가를 위한 기본 사용자 정보
+LikeItem - 관심작품 추가 정보
+searchLog - 검색어 기록
+  
+  
 </div>
 </details>
 
@@ -77,7 +87,7 @@
 <summary><b>기존 코드</b></summary>
 <div markdown="1">
 
-~~~java
+~~~Swift
 
 ~~~
   
@@ -90,7 +100,7 @@
 <summary><b>개선된 코드</b></summary>
 <div markdown="1">
   
-~~~java
+~~~Swift
 
 ~~~
   
@@ -118,18 +128,6 @@
 <summary>써치바 커스텀</summary>
 <div markdown="1">
   
-  ```jsx
-    $ npm run dev
-    npm ERR! path C:\Users\integer\IdeaProjects\pilot\package.json
-    npm ERR! code ENOENT
-    npm ERR! errno -4058
-    npm ERR! syscall open
-    npm ERR! enoent ENOENT: no such file or directory, open 'C:\Users\integer\IdeaProjects\pilot\package.json'
-    npm ERR! enoent This is related to npm not being able to find a file.
-    npm ERR! enoent
-    npm ERR! A complete log of this run can be found in:
-    npm ERR!     C:\Users\integer\AppData\Roaming\npm-cache\_logs\2019-02-25T01_23_19_131Z-debug.log
-  ```
   
   - 단순히 npm run dev/build 명령을 입력한 경로가 문제였다.
 
@@ -142,33 +140,15 @@
   - 1.5대 버전에서는 Controller의 인자로 Principal을 넘기면 principal.getName(0에서 바로 꺼내서 쓸 수 있었는데, 2.0대 버전에서는 principal.getName()의 경우 principal 객체.toString()을 반환한다.
     - 1.5대 버전에서 principal을 사용하는 경우
     - 아래와 같이 사용했다면,
-    ```jsx
-    @RequestMapping("/sso/user")
-    @SuppressWarnings("unchecked")
-    public Map<String, String> user(Principal principal) {
-        if (principal != null) {
-            OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) principal;
-            Authentication authentication = oAuth2Authentication.getUserAuthentication();
-            Map<String, String> details = new LinkedHashMap<>();
-            details = (Map<String, String>) authentication.getDetails();
-            logger.info("details = " + details);  // id, email, name, link etc.
-            Map<String, String> map = new LinkedHashMap<>();
-            map.put("email", details.get("email"));
-            return map;
-        }
-        return null;
-    }
-    ```
+    ~~~Swift
+  
+    ~~~
+  
     - 2.0대 버전에서는
     - 아래와 같이 principal 객체의 내용을 꺼내 쓸 수 있다.
-    ```jsx
-    UsernamePasswordAuthenticationToken token =
-                    (UsernamePasswordAuthenticationToken) SecurityContextHolder
-                            .getContext().getAuthentication();
-            Map<String, Object> map = (Map<String, Object>) token.getPrincipal();
-            String email = String.valueOf(map.get("email"));
-            post.setMember(memberRepository.findByEmail(email));
-    ```
+    ~~~Swift
+  
+    ~~~
         
 </div>
 </details> 
