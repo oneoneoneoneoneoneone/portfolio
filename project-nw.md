@@ -25,7 +25,7 @@
 <div markdown="1">
 
   
-### 3.1. 화면 흐름
+### 3.1. 화면
   
 |<img src="https://user-images.githubusercontent.com/94464179/220561401-e56a2766-7b70-478c-bbf8-3a6bcd63c37e.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561408-29ae03e1-9fcc-4c8e-b8d3-44d9be4c4730.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561412-e0ddcb22-991f-46d3-aa17-d6b9050ad111.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561422-91dc1c58-e4ab-4963-bc9a-b16ca549e0d6.png" width="90%" height="90%" alt>|
 |:--:|:--:|:--:|:--:|
@@ -34,26 +34,44 @@
 | *더보기* | *검색* | *상세* |
 
   
-### 3.2. API 조회
-- **앱 최초 로드 시 네이버 책&영화 OPEN API를 조회하여 데이터를 구성했습니다.**
-  - 책 링크
-  - 북 링크
+### 3.2. View
+
+- **오토 레이아웃**
+  - SnapKit 라이브러리를 사용하여 화면 레이아웃을 구성했습니다.
   
-- **URL 통신** :pushpin: [코드 확인](링크)
-  - Entities 형식에 맞게 파싱
-
-- **User Default로 저장** :pushpin: [코드 확인](링크)
-  - 로컬데이터 사용. 두번째 사용부터 로딩 없음
+- **다양한 뷰컨트롤러 사용**
+  - 웹툰(메인)화면은 요일별로 같은 콜렉션뷰를 재사용하여 다른 데이터를 보여주기위해 UIPageViewController를 사용했습니다.
+  - 웹툰(메인)화면은 여러 형태의 콜렉션뷰가 한 화면에 필요한 형태로, 콜렉션뷰 레이아웃으로 UICollectionViewCompositionalLayout을 사용하여 다양한 레이아웃을 적용했습니다.
+  
+- **화면 이동**
+  - 기본 제스쳐 사용과 화면간 이동을 자연스럽게 보여주도록 NavigationViewController의 push, pop 메소드를 사용했습니다.
 
   
-### 3.3. ViewController
+### 3.3. API 조회
+  
+- 앱 최초 로드 시 네이버 검색 API로 책 정보를 조회하여 데이터를 구성했습니다.
+  
+- **API 통신** :pushpin: [LocalNetwork 코드 확인](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Network/LocalNetwork.swift)
+  - 서버통신은 URLSession을 사용
+  ~~~Swift
+    //리퀘스트 생성
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue(APIKey().X_Naver_Client_Id, forHTTPHeaderField: "X-Naver-Client-Id")
+    request.setValue(APIKey().X_Naver_Client_Secret, forHTTPHeaderField: "X-Naver-Client-Secret")
 
-- **오토 레이아웃 - SnapKit** :pushpin: [코드 확인]()
-  - 스넵킷을 이용하여 화면 레이아웃 구성
-
-- **적합한, 다양한 뷰컨트롤러 이용?** :pushpin: [코드 확인]()
-  - ㅎㅎ.... 콜렉션뷰.. 테이블뷰.. 어쩌고
-  - 재사용을 고려하여..
+    sleep(1)
+    //태스크 생성
+    URLSession.shared.dataTask(with: request){[weak self] data, response, error in
+      ...
+    }
+    .resume()
+  ~~~
+  
+  - 테스크 내부에서 Response data에 맞춘 Books 구조체로 파싱
+  ~~~Swift
+    let books = try JSONDecoder().decode(Books.self, from: data)
+  ~~~
 
   
 ### 3.4. Service
@@ -61,14 +79,15 @@
 
 ### 3.5. Repository
 
-로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
+- **User Default로 저장** :pushpin: [코드 확인](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/Util/Repository.swift)
   
+- 로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
+  - Item - 앱 최초 실행시 저장하는 작품(책) 정보
+  - User - 관심작품 추가를 위한 기본 사용자 정보
+  - LikeItem - 관심작품 추가 정보
+  - searchLog - 검색어 기록
 <img src="https://user-images.githubusercontent.com/94464179/220568828-228645e4-0024-4978-a867-721ffb86488e.png"  width="50%" height="50%" alt>
-Item - 앱 최초 실행시 저장하는 작품(책) 정보
-User - 관심작품 추가를 위한 기본 사용자 정보
-LikeItem - 관심작품 추가 정보
-searchLog - 검색어 기록
-  
+
   
 </div>
 </details>
