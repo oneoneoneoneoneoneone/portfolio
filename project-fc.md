@@ -41,7 +41,7 @@
     <summary>코드 흐름</summary>
     <div markdown="1">
 
-      - Firebase Remote Config 연결
+    - Firebase Remote Config 연결
       ~~~swift
       //ViewController
         var remoteConfig: RemoteConfig?
@@ -55,7 +55,7 @@
         remoteConfig?.setDefaults(fromPlist: "RemoteConfigDefaults")
       ~~~
 
-      - 공지확인 터치시 Firebase A-B Test 기록
+    - 공지확인 터치시 Firebase A-B Test 기록
       ~~~swift
       //ViewController
         let confirmAction = UIAlertAction(title: "확인하기", style: .default) { _ in
@@ -88,7 +88,7 @@
     <summary>코드 흐름</summary>
     <div markdown="1">
 
-      - 알림추가 화면에서 리스트뷰로 데이터 넘기기
+    - 알림추가 화면에서 리스트뷰로 데이터 넘기기
       ~~~swift
       //AddAlertViewController
 
@@ -101,7 +101,7 @@
         }
       ~~~
 
-      - 테이블뷰에서 추가된 알림을 UNUserNotificationCenter에 넘기기
+    - 테이블뷰에서 추가된 알림을 UNUserNotificationCenter에 넘기기
       ~~~swift
       //AlertListViewController
 
@@ -117,7 +117,7 @@
         }
       ~~~
 
-      - UNUserNotificationCenter에 알림 추가
+    - UNUserNotificationCenter에 알림 추가
       ~~~swift
       //UNUserNotificationCenter
 
@@ -136,7 +136,7 @@
         self.add(timeRequest, withCompletionHandler: nil)
       ~~~
 
-      - 사용자 알림 승인
+    - 사용자 알림 승인
       ~~~swift 
       //AppDelegate
 
@@ -224,7 +224,7 @@
     <summary>코드 - 정렬</summary>
     <div markdown="1">
 
-      - ViewModel - ViewController . AlertAction(정렬방식)이 선택되었을 때 동작
+    - ViewModel - ViewController . AlertAction(정렬방식)이 선택되었을 때 동작
       ~~~swift
       //MainViewController
         viewModel.shouldPresentAlert
@@ -237,7 +237,7 @@
             .disposed(by: disposeBag)  
       ~~~
 
-      - alertActionTap되었을 때, 기존 CellData를 sortedType에 맞게 재정렬시키는 연산 수행
+    - alertActionTap되었을 때, 기존 CellData를 sortedType에 맞게 재정렬시키는 연산 수행
       ~~~swift
       //MainViewModel
         //filterView 선택 > alertSheet > type별로 액션을 구분
@@ -270,7 +270,7 @@
     <summary>코드 - 검색</summary>
     <div markdown="1">
 
-      - 검색버튼 이벤트 연결
+    - 검색버튼 이벤트 연결
       ~~~swift
       //SearchBar
         //searchButtonTap = searchButtonClicked(키보드의 검색 버튼) + search 커스텀 버튼 탭
@@ -280,7 +280,7 @@
             .disposed(by: disposeBag)
       ~~~
 
-       - 검색버튼 탭 되었을 때 결과처리??????????????????????
+    - 검색버튼 탭 되었을 때 결과처리??????????????????????
       ~~~swift
       //SearchBar
         self.shouldLoadResult = searchButtonTap
@@ -290,7 +290,7 @@
             .distinctUntilChanged()
       ~~~   
 
-       - 검색데이터 맵핑
+    - 검색데이터 맵핑
       ~~~swift
       //MainViewModel
         let blogResult = searchBarViewModel.shouldLoadResult
@@ -359,7 +359,7 @@
     <summary>코드 - 책 검색</summary>
     <div markdown="1">
 
-      - 
+    - 
       ~~~swift
       //SearchBookPresenter
             func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -381,7 +381,7 @@
     <summary>코드 - 리뷰 저장(딜리게이트 패턴)</summary>
     <div markdown="1">
 
-      - 
+    - 
       ~~~swift
       //SearchBookPresenter
 
@@ -439,7 +439,7 @@
     <summary>코드 - XCTest / Unit Test</summary>
     <div markdown="1">
 
-      - 
+    - 
       ~~~swift
       //ㅇㅇ
 
