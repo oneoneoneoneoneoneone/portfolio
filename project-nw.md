@@ -79,7 +79,7 @@
 
   
 ### 3.4. Service
-
+- 화면간 데이터 이동. Notification!!!
 
 ### 3.5. Repository
 
@@ -238,52 +238,6 @@
   
 </br>
 
-  
-## 6. 그 외 트러블 슈팅
-<details>
-<summary>스트키 메뉴</summary>
-<div markdown="1">
-- 조가태요
-</div>
-</details>
-
-<details>
-<summary>ElementUI input 박스에서 `v-on:keyup.enter="메소드명"`이 정상 작동 안하는 문제</summary>
-<div markdown="1">
-  - `v-on:keyup.enter.native=""` 와 같이 .native 추가로 해결
-</div>
-</details>
-
-<details>
-<summary>써치바 커스텀</summary>
-<div markdown="1">
-  
-  
-  - 단순히 npm run dev/build 명령을 입력한 경로가 문제였다.
-
-</details> 
-  
-<details>
-<summary> 구글 로그인으로 로그인한 사용자의 정보를 가져오는 방법이 스프링 2.0대 버전에서 달라진 것</summary>
-<div markdown="1">
-  
-  - 1.5대 버전에서는 Controller의 인자로 Principal을 넘기면 principal.getName(0에서 바로 꺼내서 쓸 수 있었는데, 2.0대 버전에서는 principal.getName()의 경우 principal 객체.toString()을 반환한다.
-    - 1.5대 버전에서 principal을 사용하는 경우
-    - 아래와 같이 사용했다면,
-    ~~~Swift
-  
-    ~~~
-  
-    - 2.0대 버전에서는
-    - 아래와 같이 principal 객체의 내용을 꺼내 쓸 수 있다.
-    ~~~Swift
-  
-    ~~~
-        
-</div>
-</details> 
-    
-</br>
   
 ## 6. 회고 / 느낀점
 >프로젝트 개발 회고 글:
