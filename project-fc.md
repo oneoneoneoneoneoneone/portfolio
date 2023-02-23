@@ -191,7 +191,8 @@
     <details>
     <summary>코드 - API 통신</summary>
     <div markdown="1">
-
+    
+    - 
       ~~~swift
       //SearchBlogNetwork
         let request = NSMutableURLRequest(url: url)
