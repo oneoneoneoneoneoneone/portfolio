@@ -83,7 +83,7 @@
 
 ### 3.5. Repository
 
-- **User Default로 저장** 
+- **User Defaults로 저장** 
   - Repository.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Util/Repository.swift)
   
 - 로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
