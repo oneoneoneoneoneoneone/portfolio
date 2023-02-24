@@ -192,30 +192,36 @@
     <summary>코드 - API 통신</summary>
     <div markdown="1">
     
-    - 
+    - 네트워크 통신은 기본 제공되는 NSURLRequest라이브러리를 사용했습니다.
       ~~~swift
       //SearchBlogNetwork
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "GET"
-        //header
-        request.setValue("KakaoAK -", forHTTPHeaderField: "Authorization")
+        //SearchNetworkError - 미리 정의한 네트워크 에러 enum
+        func searchBlog(query: String) -> Single<Result<DKBlog, SearchNetworkError>>{
+            guard let url = api.searchBlog(query: query).url else{
+                return .just(.failure(.invalidURL))
+            }
 
-        return session.rx.data(request: request as URLRequest)
-            .map{data in
-                //json encoding
-                do{
-                    let blogData = try JSONDecoder().decode(DKBlog.self, from: data)
-                    return .success(blogData)
-                }catch{
-                    return .failure(.invalidJSON)
+            let request = NSMutableURLRequest(url: url)
+            request.httpMethod = "GET"
+            request.setValue("KakaoAK -", forHTTPHeaderField: "Authorization")
+
+            return session.rx.data(request: request as URLRequest)
+                .map{data in
+                    do{
+                        //json encoding
+                        let blogData = try JSONDecoder().decode(DKBlog.self, from: data)
+                        return .success(blogData)
+                    }catch{
+                        return .failure(.invalidJSON)
+                    }
                 }
-            }
-            .catch{_ in
-                    .just(.failure(.networkError))
-            }
-            //옵저버블 > single
-            //Single<Result<DKBlog, SearchNetworkError>>
-            .asSingle()
+                .catch{_ in
+                        .just(.failure(.networkError))
+                }
+                //옵저버블 > single
+                //Single<Result<DKBlog, SearchNetworkError>>
+                .asSingle()
+        }
       ~~~
 
     </div>
@@ -225,7 +231,7 @@
     <summary>코드 - 정렬</summary>
     <div markdown="1">
 
-    - ViewModel - ViewController . AlertAction(정렬방식)이 선택되었을 때 동작
+    - ViewModel과 ViewController간에 AlertAction(정렬방식)이 선택되었을 때 동작
       ~~~swift
       //MainViewController
         viewModel.shouldPresentAlert
@@ -359,11 +365,28 @@
     <details>
     <summary>코드 - 책 검색</summary>
     <div markdown="1">
+        
+    - API호출을 위한 네트워크 통신은 Alamofire 라이브러리를 사용했습니다.
+      ~~~swift
+      //BookSearchManager
+        AF
+            .request(url, method: .get, parameters: prameters, headers: headers)
+            .responseDecodable(of: BookSearchResponseModel.self){response in
+                switch response.result{
+                case .success(let result):
+                    completionHandler(result.items)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            .resume()
+        
+      ~~~
 
-    - 
+    - UISearchBarDelegate의 검색버튼이 눌렸을 때 메소드로, 검색어가 확인되면 API 검색 후 테이블을 리로드합니다.
       ~~~swift
       //SearchBookPresenter
-            func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             guard let searchText = searchBar.text else {return}
 
             //책 검색 데이터 가져옴. completionHandler([Book])
@@ -382,10 +405,23 @@
     <summary>코드 - 리뷰 저장(딜리게이트 패턴)</summary>
     <div markdown="1">
 
-    - 
+    - ViewController단에서는 presenter단에 프로토콜 딜리게이트를 전달??합니다.
+      ~~~swift
+      //SearchBookViewController
+        private lazy var presenter = SearchBookPresenter(viewController: self, delegate: serachBookDelegate)
+
+        private let serachBookDelegate: SearchBookDelegate
+
+        init(searchBookDelegate: SearchBookDelegate){
+            self.serachBookDelegate = searchBookDelegate
+
+            super.init(nibName: nil, bundle: nil)
+        }
+      ~~~
+        
+    - 뷰컨트롤러에서 전달 된 딜리게이트로 초기화, 검색된 목록 중 하나가 선택되었을 때 셀 데이터를 딜리게이트로 전달합니다.
       ~~~swift
       //SearchBookPresenter
-
         private let delegate: SearchBookDelegate
 
         init(viewController: SearchBookProtocol, delegate: SearchBookDelegate) {
@@ -403,26 +439,7 @@
         }
       ~~~
 
-      ~~~swift
-      //SearchBookDelegate
-        protocol SearchBookDelegate{
-            func selectBook(_ book: Book)
-        }
-      ~~~
-
-      ~~~swift
-      //SearchBookViewController
-        private lazy var presenter = SearchBookPresenter(viewController: self, delegate: serachBookDelegate)
-
-        private let serachBookDelegate: SearchBookDelegate
-
-        init(searchBookDelegate: SearchBookDelegate){
-            self.serachBookDelegate = searchBookDelegate
-
-            super.init(nibName: nil, bundle: nil)
-        }
-      ~~~
-
+    - 리뷰를 작성하는 ViewController단에서 딜리게이트를 상속받아 전달 된 셀 데이터 값을 화면에 업데이트 합니다.
       ~~~swift
       //ReviewWritePresenter
         extension ReviewWritePresenter: SearchBookDelegate{
@@ -464,7 +481,7 @@
         
     - ViewController 등 테스트에 필요한 클래스들은 MockClass로 생성하여 사용했습니다.
       ~~~swift
-         MockSearchBookViewController: SearchBookProtocol{
+         class MockSearchBookViewController: SearchBookProtocol{
             var isCalledSetupNavigationBar = false
             var isCalledSetupViews = false
             var isCalledClose = false
