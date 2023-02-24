@@ -437,13 +437,55 @@
     </details>
     
     <details>
-    <summary>코드 - XCTest / Unit Test</summary>
+    <summary>코드 - Unit Test</summary>
     <div markdown="1">
 
-    - 
+    - presenter에 대한 테스트 코드를 작성했습니다.
       ~~~swift
-      //ㅇㅇ
+      //SearchBookPresenterTests
+        override func setUp() {
+            super.setUp()
 
+            viewController = MockSearchBookViewController()
+            bookSearchManager = MockBookSearchManager()
+            delegate = MockDelegate()
+
+            sut = SearchBookPresenter(viewController: viewController, delegate: delegate, bookSearchManager: bookSearchManager)
+        }
+        
+        func test_searchBarSearchButtonClicked_호출될_때_request_성공(){
+            bookSearchManager.needToSuccessRequest = true
+            sut.searchBarSearchButtonClicked(UISearchBar())
+        
+            XCTAssertTrue(viewController.isCalledReloadView, "reloadView 실행")
+        }
+        
+      ~~~
+        
+    - ViewController 등 테스트에 필요한 클래스들은 MockClass로 생성하여 사용했습니다.
+      ~~~swift
+         MockSearchBookViewController: SearchBookProtocol{
+            var isCalledSetupNavigationBar = false
+            var isCalledSetupViews = false
+            var isCalledClose = false
+            var isCalledReloadView = false
+
+            func setupNavigationBar() {
+                isCalledSetupNavigationBar = true
+            }
+
+            func setupViews() {
+                isCalledSetupViews = true
+            }
+
+            func close() {
+                isCalledClose = true
+            }
+
+            func reloadView() {
+                isCalledReloadView = true
+            } 
+        }
       ~~~
 
     </div>
