@@ -23,7 +23,7 @@ iOS앱 개발을 하고있습니다.
 >개발 기간: 2022.01 ~ 2022.02
 >  
 >기술 스택:  
->UIKit / SnapKit / rxSwift / Realm
+>UIKit / SnapKit / RxSwift / Realm
 >
 >[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project-dday.md)
 
@@ -45,7 +45,7 @@ iOS앱 개발을 하고있습니다.
 >개발 기간: 2022.03 ~ 2023.02
 >  
 >기술 스택:  
->UIKit / SnapKit
+>UIKit / SnapKit / SwiftUI / Alamofire / RxSwift / XCTest / Firebase / MVPArchitecture
 >
 >[프로젝트 상세 설명](https://github.com/oneoneoneoneoneoneone/portfolio/blob/main/project-fc.md)
 
