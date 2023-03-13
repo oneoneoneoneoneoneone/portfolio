@@ -1,6 +1,6 @@
 # :pushpin: 온라인 강의 실습 프로젝트
 >강의 정보: [[패스트캠퍼스]30개 프로젝트로 배우는 iOS 앱 개발 with Swift 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_iosappfinal) <br>
->전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios)
+>전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS)
 
 </br>
 
@@ -24,7 +24,7 @@
 
 ### 3.1. 실시간 공지사항 팝업 만들기
 - 기능: 단순 공지사항 팝업을 띄우는 기능을 가진 앱으로, Firebase Remote Config와 연결하여 실시간으로 공지 내용을 변경할 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P3/Notice)
 
     <details>
     <summary>화면</summary>
@@ -71,7 +71,7 @@
 
 ### 3.2. 물마시기 알람 앱 만들기
 - 기능: datePicker로 알림을 추가하고 알림 리스트를 관리할 수 있으며, NotificationCenter으로 알림을 받아볼 수 있습니다. 
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Drink)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P3/Drink)
 
     <details>
     <summary>화면</summary>
@@ -155,7 +155,7 @@
 
 ### 3.3. 재난문자 푸시 알림 구현하기
 - 기능: Firebase Clouding Messaging 사용해 APNs 알림을 보낼 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P3/Notice)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P3/Notice)
 
     <details>
     <summary>코드 - FCM 토큰 발급</summary>
@@ -175,7 +175,7 @@
 
 ### 3.4. 다음 카페/블로그 검색앱 만들기
 - 기능: 다음 검색 API로 카페/블로그 글을 검색하고, 이름/작성일 기준으로 정렬하여 조회 할 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P4/SubwayStation)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P4/SubwayStation)
 
     <details>
     <summary>화면</summary>
@@ -325,7 +325,7 @@
 
 ### 3.5. 내 근처 편의점 찾기 앱
 - 기능: ..
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/FindCVS)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P5/FindCVS)
 
     <details>
     <summary>화면</summary>
@@ -349,7 +349,7 @@
 
 ### 3.6. 도서리뷰 앱 만들기
 - 기능: 네이버 검색 API로 가져온 책 제목/이미지, 리뷰를 작성하고 그 목록을 조회할 수 있습니다.
-- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus_ios/tree/main/P5/BookReview)
+- 프로젝트 코드: [🔗](https://github.com/oneoneoneoneoneoneone/Fastcampus-iOS/tree/main/P5/BookReview)
 
     <details>
     <summary>화면</summary>
