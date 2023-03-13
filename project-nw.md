@@ -1,6 +1,6 @@
 # :pushpin: 클론코딩
 >네이버웹툰 클론코딩  
->전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding)
+>전체 코드: [🔗](https://github.com/oneoneoneoneoneoneone/NAVER-WEBTOON-CloneCoding)
 
 
 </br>
@@ -29,12 +29,12 @@
   
 ### 3.1. 화면
   
-|<img src="https://user-images.githubusercontent.com/94464179/220561401-e56a2766-7b70-478c-bbf8-3a6bcd63c37e.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561408-29ae03e1-9fcc-4c8e-b8d3-44d9be4c4730.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561412-e0ddcb22-991f-46d3-aa17-d6b9050ad111.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561422-91dc1c58-e4ab-4963-bc9a-b16ca549e0d6.png" width="90%" height="90%" alt>|
+|<img src="https://user-images.githubusercontent.com/94464179/220561401-e56a2766-7b70-478c-bbf8-3a6bcd63c37e.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561408-29ae03e1-9fcc-4c8e-b8d3-44d9be4c4730.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561412-e0ddcb22-991f-46d3-aa17-d6b9050ad111.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561422-91dc1c58-e4ab-4963-bc9a-b16ca549e0d6.png" width="85%" height="85%" alt>|
 |:--:|:--:|:--:|:--:|
 | *웹툰(메인)* | *추천완결* | *베스트도전* | *My* |
-|<img src="https://user-images.githubusercontent.com/94464179/220561419-8d1abd98-730b-4ff6-a096-c770cf7ef22f.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561427-cd08f77e-cb39-4b7b-abfa-879b33011928.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561429-4782190d-d739-467b-b482-449d8c211b02.png" width="90%" height="90%" alt>|
-| *더보기* | *검색* | *상세* |
-
+|<img src="https://user-images.githubusercontent.com/94464179/220561419-8d1abd98-730b-4ff6-a096-c770cf7ef22f.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561427-cd08f77e-cb39-4b7b-abfa-879b33011928.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/220561429-4782190d-d739-467b-b482-449d8c211b02.png" width="90%" height="90%" alt>|<img src="https://user-images.githubusercontent.com/94464179/224633114-73e46154-d33a-4dca-a165-cf71e08d7638.png" width="85%" height="85%" alt>|
+| *더보기* | *검색* | *상세* | *웹뷰* |
+  
   
 ### 3.2. View
 
@@ -75,7 +75,7 @@
     let books = try JSONDecoder().decode(Books.self, from: data)
   ~~~
   
-  - LocalNetwork.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Network/LocalNetwork.swift)
+  - LocalNetwork.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NAVER-WEBTOON-CloneCoding/blob/main/NaverWebtoonCloneCoding/Network/LocalNetwork.swift)
 
   
 ### 3.4. Service
@@ -84,7 +84,7 @@
 ### 3.5. Repository
 
 - **User Defaults로 저장** 
-  - Repository.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Util/Repository.swift)
+  - Repository.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NAVER-WEBTOON-CloneCoding/blob/main/NaverWebtoonCloneCoding/Util/Repository.swift)
   
 - 로컬 디비(UserDefaults)에 저장하는 데이터 목록입니다.
   - Item - 앱 최초 실행시 저장하는 작품(책) 정보
@@ -213,7 +213,7 @@
 - 서치바컨트롤러의 스코프바를 사용했을 때, 취소버튼이 서치바 옆이 아닌 두 객체 사이의 옆에 위치하는 문제가 있었습니다.
     - 서치바를 커스텀으로 만들었습니다.
     - 스코프바에 해당하는 컨트롤은 UISegmentedControl로 구현했습니다.
-    - CustomSearchViewController.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Scene/CustomUI/CustomSearchViewController.swift)
+    - CustomSearchViewController.swift 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NAVER-WEBTOON-CloneCoding/blob/main/NaverWebtoonCloneCoding/Scene/CustomUI/CustomSearchViewController.swift)
   
   
 ### 5.4. 상세화면 버튼 색깔
@@ -230,7 +230,7 @@
       likeLabel.layer.backgroundColor = imageView.image?.getPixelColor(pos: CGPoint(x: 0, y: 0)).cgColor
     ~~~
 
-    - extension UIImage 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NaverWebtoonCloneCoding/blob/main/NaverWebtoonCloneCoding/Scene/CustomUI/UIImage.swift)
+    - extension UIImage 코드 확인: [🔗](https://github.com/oneoneoneoneoneoneone/NAVER-WEBTOON-CloneCoding/blob/main/NaverWebtoonCloneCoding/Scene/CustomUI/UIImage.swift)
 
   </div>
   </details>
@@ -238,7 +238,3 @@
   
 </br>
 
-  
-## 6. 회고 / 느낀점
->프로젝트 개발 회고 글:
->디자인이 다 나와있는데 왜 안대누..
